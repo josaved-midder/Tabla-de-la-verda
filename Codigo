@@ -1,0 +1,21 @@
+import time
+import numpy
+s1 = [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+s2 = [0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1]
+s3 = [0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1]
+s4 = [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1]
+
+for i in range (1, 17):
+    not_s1 = not (s1[i-1])
+    not_s2 = not (s2[i-1])
+    not_s3 = not (s3[i-1])
+    not_s4 = not (s4[i-1])
+    Salida1 = not_s1  and not_s2 and s3[i-1]
+    Salida2 = (not_s1 and s2[i-1] and not_s4) or (s1[i-1] and not_s2 and not_s3) or (s2[i-1] and not_s3 and s4[i-1])
+    Salida3 = (not_s1 and not_s3 and not_s4) or (not_s2 and s4[i-1]) or (not_s2 and s3[i-1])
+    binario_Salida1 = numpy.array(Salida1, dtype=int)
+    binario_Salida2 = numpy.array(Salida2, dtype=int)
+    binario_Salida3 = numpy.array(Salida3, dtype=int)
+    print(binario_Salida1, binario_Salida2, binario_Salida3)
+    # binario_decimal = int(str(b), 2)
+    #time.sleep(1)
